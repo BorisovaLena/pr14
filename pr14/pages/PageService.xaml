@@ -21,6 +21,7 @@
                         <Grid Width="350" Height="250">
                             <StackPanel>
                                 <TextBlock Text="{Binding Title}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding }"
                             </StackPanel>
                         </Grid>
                     </Border>
