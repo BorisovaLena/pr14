@@ -5,11 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:pr14.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="PageService">
 
+    <Page.Resources>
+        <!--<BitmapImage x:Key="NoPhoto" UriSource="\pictures\picture.png"/>-->
+    </Page.Resources>
+
     <Grid>
-        <ListView Name="listServices" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <GroupBox Header="Введите текст для поиска" Width="400">
+                <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
+            </GroupBox>
+            <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>от 0 до 5%</ComboBoxItem>
+                <ComboBoxItem>от 5 до 15%</ComboBoxItem>
+                <ComboBoxItem>от 15 до 30%</ComboBoxItem>
+                <ComboBoxItem>от 30 до 70%</ComboBoxItem>
+                <ComboBoxItem>от 70 до 100%</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <ListView Grid.Row="1" Name="listServices" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="580">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"></WrapPanel>
@@ -18,16 +40,33 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
-                        <Grid Width="350" Height="250">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap"/>
-                                <TextBlock Text="{Binding }"
+                        <Grid Height="120" Width="800" Background="{Binding Color}">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <Image Width="110" Height="110" Source="{Binding MainImagePath}" Margin="5"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Title}" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{Binding Price}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Name="btnUpdate" Content="редактировать"/>
+                                        <Button Name="btnDelete" Content="удалить"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                
                             </StackPanel>
+                           
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Name="tbData"/>
+        </StackPanel>
 
     </Grid>
 </Page>
