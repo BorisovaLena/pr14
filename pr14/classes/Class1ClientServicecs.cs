@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace pr14
 {
@@ -10,11 +7,12 @@ namespace pr14
     {
         int hours = 0, min = 0;
         public string TimeLeft
-        { 
+        {
+
             get
             {
-                
-                if(StartTime < DateTime.Now)
+                hours = 0; min = 0;
+                if (StartTime < DateTime.Now)
                 {
                     return "0 ч. 0 мин.";
                 }
@@ -29,7 +27,15 @@ namespace pr14
                     min = Convert.ToInt32(dateTime.ToString("mm"));
                     return hours + " ч. " + min + " мин.";
                 }
-                
+            }
+        }
+
+        public SolidColorBrush Color
+        {
+            get
+            {
+                if (hours < 1) { return Brushes.Red; }
+                else { return Brushes.Black; }
             }
         }
     }

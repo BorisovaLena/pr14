@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr14"
         mc:Ignorable="d"
-        Title="WindowUpcomingEntries" Height="500" Width="1200">
+        Title="Ближайшие записи" Height="550" Width="1250">
     <Grid>
         <StackPanel>
             <TextBlock Text="Ближайшие записи"/>
             <StackPanel>
-                <DataGrid Height="400" Name="dgUpcomingEntries" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
+                <DataGrid Height="450" Name="dgUpcomingEntries" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Service.Title}"/>
-                        <DataGridTextColumn Width="*" Header="ФИО клиента" Binding="{Binding Client.FIO}"/>
-                        <DataGridTextColumn Width="*" Header="Email" Binding="{Binding Client.Email}"/>
+                        <DataGridTextColumn Width="500" Header="Название" Binding="{Binding Service.Title}"/>
+                        <DataGridTextColumn Width="210" Header="ФИО клиента" Binding="{Binding Client.FIO}"/>
+                        <DataGridTextColumn Width="150" Header="Email" Binding="{Binding Client.Email}"/>
                         <DataGridTextColumn Width="*" Header="Телефон" Binding="{Binding Client.Phone}"/>
                         <DataGridTextColumn Width="*" Header="Дата записи" Binding="{Binding StartTime, StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
-                        <DataGridTextColumn Width="*" Header="Осталось" Binding="{Binding TimeLeft}"/>
+                        <DataGridTextColumn Width="*" Header="Осталось" Binding="{Binding TimeLeft}" Foreground="{Binding Color}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

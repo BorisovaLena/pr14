@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace pr14
 {
@@ -19,11 +20,29 @@ namespace pr14
     /// </summary>
     public partial class WindowUpcomingEntries : Window
     {
+        DispatcherTimer dispatcherTimer = new DispatcherTimer();
         public WindowUpcomingEntries()
         {
             InitializeComponent();
-            dgUpcomingEntries.ItemsSource = classes.ClassBase.Base.ClientService.ToList();
-
+            DateTime tomorrow = DateTime.Today.AddDays(2);
+            dgUpcomingEntries.ItemsSource = classes.ClassBase.Base.ClientService.Where(z=> z.StartTime>= DateTime.Today && z.StartTime <tomorrow).ToList();
+            Timer();
         }
+
+        public void Timer()
+        {
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 30);
+            dispatcherTimer.Tick += new EventHandler(DisTimer_Tick);
+            dispatcherTimer.Start();
+        }
+
+        private void DisTimer_Tick(object sender, EventArgs e)
+        {
+            dispatcherTimer.Stop();
+            DateTime tomorrow = DateTime.Today.AddDays(2);
+            dgUpcomingEntries.ItemsSource = classes.ClassBase.Base.ClientService.Where(z => z.StartTime >= DateTime.Today && z.StartTime < tomorrow).ToList();
+            Timer();
+        }
+
     }
 }
