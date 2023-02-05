@@ -52,7 +52,8 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Button Name="btnUpdate" Content="редактировать"/>
-                                        <Button Name="btnDelete" Content="удалить"/>
+                                        <Button Name="btnDelete" Content="удалить" Uid="{Binding ID}" Click="btnDelete_Click"/>
+                                        <Button Name="btnRecord" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click"/>
                                     </StackPanel>
                                 </StackPanel>
                                 

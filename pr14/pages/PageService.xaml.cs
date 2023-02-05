@@ -75,5 +75,28 @@ namespace pr14.pages
         {
             Filter();
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+
+            List<ClientService> clientServices = classes.ClassBase.Base.ClientService.Where(z => z.ServiceID == index).ToList();
+            if (clientServices.Count==0)
+            {
+                Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
+                classes.ClassBase.Base.Service.Remove(service);
+                classes.ClassBase.Base.SaveChanges();
+                classes.ClassFrame.mainFrame.Navigate(new PageService());
+            } 
+        }
+
+        private void btnRecord_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+            Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
+            classes.ClassFrame.mainFrame.Navigate(new PageClientRecord(service));
+        }
     }
 }
