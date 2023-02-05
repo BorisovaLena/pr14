@@ -18,7 +18,23 @@
                 <GroupBox Header="Длительность">
                     <TextBox Name="tbTime"/>
                 </GroupBox>
-                <ComboBox Name="cmbClient" SelectionChanged="cmbClient_SelectionChanged"/>
+                <GroupBox Header="Выберите клиента">
+                    <ComboBox Name="cmbClient"/>
+                </GroupBox>
+                <GroupBox Header="Выберите дату">
+                    <DatePicker Name="dpDate"/>
+                </GroupBox>
+                <GroupBox Header="Введите время начала услуги">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Name="tbStartTimeHours" MaxLength="2" Width="50" PreviewTextInput="tbStartTimeHours_PreviewTextInput" TextChanged="tbStartTimeHours_TextChanged"/>
+                        <TextBlock Text=":" Margin="5"/>
+                        <TextBox Name="tbStartTimeMin" MaxLength="2" Width="50" PreviewTextInput="tbStartTimeHours_PreviewTextInput" TextChanged="tbStartTimeHours_TextChanged"/>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Время окончания">
+                    <TextBox Name="tbEndTime"/>
+                </GroupBox>
+                <Button Name="btnSaveClientrecord" Content="Сохранить" Click="btnSaveClientrecord_Click"/>
             </StackPanel>
             
         </StackPanel>
