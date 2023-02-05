@@ -1,0 +1,28 @@
+﻿<Window x:Class="pr14.WindowUpcomingEntries"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr14"
+        mc:Ignorable="d"
+        Title="WindowUpcomingEntries" Height="500" Width="1200">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Ближайшие записи"/>
+            <StackPanel>
+                <DataGrid Height="400" Name="dgUpcomingEntries" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Service.Title}"/>
+                        <DataGridTextColumn Width="*" Header="ФИО клиента" Binding="{Binding Client.FIO}"/>
+                        <DataGridTextColumn Width="*" Header="Email" Binding="{Binding Client.Email}"/>
+                        <DataGridTextColumn Width="*" Header="Телефон" Binding="{Binding Client.Phone}"/>
+                        <DataGridTextColumn Width="*" Header="Дата записи" Binding="{Binding StartTime, StringFormat={}{0:dd.MM.yyyy hh:mm}}"/>
+                        <DataGridTextColumn Width="*" Header="Осталось" Binding="{Binding TimeLeft}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>

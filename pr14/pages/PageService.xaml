@@ -19,9 +19,13 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <GroupBox Header="Введите текст для поиска" Width="400">
-                <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
-            </GroupBox>
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Введите текст для поиска" Width="400">
+                    <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
+                </GroupBox>
+                <Button Name="btnWindowUpcomingEntries" Content="Ближайшие записи" Click="btnWindowUpcomingEntries_Click"/>
+            </StackPanel>
+            
             <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
                 <ComboBoxItem>Все</ComboBoxItem>
                 <ComboBoxItem>от 0 до 5%</ComboBoxItem>

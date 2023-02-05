@@ -98,5 +98,11 @@ namespace pr14.pages
             Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
             classes.ClassFrame.mainFrame.Navigate(new PageClientRecord(service));
         }
+
+        private void btnWindowUpcomingEntries_Click(object sender, RoutedEventArgs e)
+        {
+            WindowUpcomingEntries windowUpcomingEntries = new WindowUpcomingEntries();
+            windowUpcomingEntries.ShowDialog();
+        }
     }
 }

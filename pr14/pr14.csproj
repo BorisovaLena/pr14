@@ -64,7 +64,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="classes\Class1ClientServicecs.cs" />
     <Compile Include="classes\ClassBase.cs" />
+    <Compile Include="classes\ClassClient.cs" />
     <Compile Include="classes\ClassFrame.cs" />
     <Compile Include="classes\ClassService.cs" />
     <Compile Include="Client.cs">
@@ -114,6 +116,9 @@
     <Compile Include="TagOfClient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="WindowUpcomingEntries.xaml.cs">
+      <DependentUpon>WindowUpcomingEntries.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -131,6 +136,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\PageService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowUpcomingEntries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
