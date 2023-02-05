@@ -1,0 +1,36 @@
+﻿<Window x:Class="pr14.WindowAddUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr14"
+        mc:Ignorable="d"
+        Title="WindowAddUpdate" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="200" Name="image"/>
+                    <Button Name="btnUpdateImage" Content="Изменить фото"/>
+                </StackPanel>
+                <GroupBox Header="Название">
+                    <TextBox Name="tbName"/>
+                </GroupBox>
+                <GroupBox Header="Стоимость">
+                    <TextBox Name="tbCost"/>
+                </GroupBox>
+                <GroupBox Header="Длительность">
+                    <TextBox Name="tbDurationInSeconds"/>
+                </GroupBox>
+                <GroupBox Header="Описание">
+                    <TextBox Name="tbDescription"/>
+                </GroupBox>
+                <GroupBox Header="Скидка">
+                    <TextBox Name="tbDiscount"/>
+                </GroupBox>
+            </StackPanel>
+            <Button Name="btnSave" Content="Сохранить" Click="btnSave_Click"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

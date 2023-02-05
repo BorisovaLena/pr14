@@ -116,6 +116,9 @@
     <Compile Include="TagOfClient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="WindowAddUpdate.xaml.cs">
+      <DependentUpon>WindowAddUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowUpcomingEntries.xaml.cs">
       <DependentUpon>WindowUpcomingEntries.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\PageService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowAddUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

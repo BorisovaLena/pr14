@@ -104,5 +104,32 @@ namespace pr14.pages
             WindowUpcomingEntries windowUpcomingEntries = new WindowUpcomingEntries();
             windowUpcomingEntries.ShowDialog();
         }
+
+        private void btnUpdate_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if(tbCode.Text=="0000")
+            {
+                btn.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+
+            Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
+            WindowAddUpdate windowAddUpdate = new WindowAddUpdate(service);
+            windowAddUpdate.ShowDialog();
+            classes.ClassFrame.mainFrame.Navigate(new PageService());
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAddUpdate windowAddUpdate = new WindowAddUpdate();
+            windowAddUpdate.ShowDialog();
+            classes.ClassFrame.mainFrame.Navigate(new PageService());
+        }
     }
 }

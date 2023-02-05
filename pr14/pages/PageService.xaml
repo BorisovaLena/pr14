@@ -24,6 +24,9 @@
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
                 </GroupBox>
                 <Button Name="btnWindowUpcomingEntries" Content="Ближайшие записи" Click="btnWindowUpcomingEntries_Click"/>
+                <GroupBox Header="Код" Width="100">
+                    <TextBox Name="tbCode" Text="0000"/>
+                </GroupBox>
             </StackPanel>
             
             <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
@@ -55,9 +58,9 @@
                                         <TextBlock Text="{Binding Price}"/>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Name="btnUpdate" Content="редактировать"/>
-                                        <Button Name="btnDelete" Content="удалить" Uid="{Binding ID}" Click="btnDelete_Click"/>
-                                        <Button Name="btnRecord" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click"/>
+                                        <Button Name="btnUpdate" Loaded="btnUpdate_Loaded" Content="Редактировать" Uid="{Binding ID}" Click="btnUpdate_Click" Visibility="Collapsed"/>
+                                        <Button Name="btnDelete" Loaded="btnUpdate_Loaded" Content="Удалить" Uid="{Binding ID}" Click="btnDelete_Click" Visibility="Collapsed"/>
+                                        <Button Name="btnRecord" Loaded="btnUpdate_Loaded" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click" Visibility="Collapsed"/>
                                     </StackPanel>
                                 </StackPanel>
                                 
@@ -69,8 +72,9 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock Name="tbData"/>
+            <Button Name="btnAdd" Content="Добавить" Click="btnAdd_Click"/>
         </StackPanel>
 
     </Grid>
