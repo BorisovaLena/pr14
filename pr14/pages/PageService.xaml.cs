@@ -21,10 +21,11 @@ namespace pr14.pages
     public partial class PageService : Page
     {
         List<Service> listFilter;
-
-        public PageService()
+        string code;
+        public PageService(string code)
         {
             InitializeComponent();
+            this.code = code;
             listServices.ItemsSource = classes.ClassBase.Base.Service.ToList();
             cmbSort.SelectedIndex = 0;
         }
@@ -91,7 +92,7 @@ namespace pr14.pages
                         Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
                         classes.ClassBase.Base.Service.Remove(service);
                         classes.ClassBase.Base.SaveChanges();
-                        classes.ClassFrame.mainFrame.Navigate(new PageService());
+                        classes.ClassFrame.mainFrame.Navigate(new PageService(code));
                     }
                     break;
                 default:
@@ -104,26 +105,13 @@ namespace pr14.pages
             Button btn = (Button)sender;
             int index = Convert.ToInt32(btn.Uid);
             Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
-            classes.ClassFrame.mainFrame.Navigate(new PageClientRecord(service));
+            classes.ClassFrame.mainFrame.Navigate(new PageClientRecord(service, code));
         }
 
         private void btnWindowUpcomingEntries_Click(object sender, RoutedEventArgs e)
         {
             WindowUpcomingEntries windowUpcomingEntries = new WindowUpcomingEntries();
             windowUpcomingEntries.ShowDialog();
-        }
-
-        private void btnUpdate_Loaded(object sender, RoutedEventArgs e)
-        {
-            Button btn = (Button)sender;
-            if(tbCode.Text=="0000")
-            {
-                btn.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                btn.Visibility = Visibility.Collapsed;
-            }
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
@@ -134,20 +122,33 @@ namespace pr14.pages
             Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
             WindowAddUpdate windowAddUpdate = new WindowAddUpdate(service);
             windowAddUpdate.ShowDialog();
-            classes.ClassFrame.mainFrame.Navigate(new PageService());
+            classes.ClassFrame.mainFrame.Navigate(new PageService(code));
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             WindowAddUpdate windowAddUpdate = new WindowAddUpdate();
             windowAddUpdate.ShowDialog();
-            classes.ClassFrame.mainFrame.Navigate(new PageService());
+            classes.ClassFrame.mainFrame.Navigate(new PageService(code));
         }
 
         private void btnDelete_Loaded(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-            if (tbCode.Text == "0000")
+            if (code == "0000")
+            {
+                btn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btn.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void btnUpdate_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (code == "0000")
             {
                 btn.Visibility = Visibility.Visible;
             }

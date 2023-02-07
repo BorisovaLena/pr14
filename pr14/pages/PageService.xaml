@@ -9,7 +9,7 @@
       Title="PageService">
 
     <Page.Resources>
-        <!--<BitmapImage x:Key="NoPhoto" UriSource="\pictures\picture.png"/>-->
+        <BitmapImage x:Key="NoPhoto" UriSource="..\pictures\picture.png"/>
     </Page.Resources>
 
     <Grid>
@@ -23,10 +23,8 @@
                 <GroupBox Header="Введите текст для поиска" Width="400">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged"/>
                 </GroupBox>
-                <Button Name="btnWindowUpcomingEntries" Content="Ближайшие записи" Click="btnWindowUpcomingEntries_Click"/>
-                <GroupBox Header="Код" Width="100">
-                    <TextBox Name="tbCode" Text="0000"/>
-                </GroupBox>
+                <Button Name="btnWindowUpcomingEntries" Content="Ближайшие записи" Click="btnWindowUpcomingEntries_Click" Template="{StaticResource CTButon}"/>
+               
             </StackPanel>
             
             <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
@@ -38,7 +36,7 @@
                 <ComboBoxItem>от 70 до 100%</ComboBoxItem>
             </ComboBox>
         </StackPanel>
-        <ListView Grid.Row="1" Name="listServices" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="580">
+        <ListView Grid.Row="1" Name="listServices" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="530">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"></WrapPanel>
@@ -50,7 +48,7 @@
                         <Grid Height="120" Width="800" Background="{Binding Color}">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel>
-                                    <Image Width="110" Height="110" Source="{Binding MainImagePath}" Margin="5"/>
+                                    <Image Width="110" Height="110" Source="{Binding MainImagePath, TargetNullValue={StaticResource NoPhoto}}" Margin="5"/>
                                 </StackPanel>
                                 <StackPanel>
                                     <StackPanel>
@@ -61,12 +59,11 @@
                                         </StackPanel>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Name="btnUpdate" Loaded="btnUpdate_Loaded" Content="Редактировать" Uid="{Binding ID}" Click="btnUpdate_Click" Visibility="Collapsed"/>
-                                        <Button Name="btnDelete" Loaded="btnDelete_Loaded" Content="Удалить" Uid="{Binding ID}" Click="btnDelete_Click" Visibility="Collapsed"/>
-                                        <Button Name="btnRecord" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click"/>
+                                        <Button Name="btnUpdate" Loaded="btnUpdate_Loaded" Content="Редактировать" Uid="{Binding ID}" Click="btnUpdate_Click" Visibility="Collapsed" Template="{StaticResource CTButon2}"/>
+                                        <Button Name="btnDelete" Loaded="btnDelete_Loaded" Content="Удалить" Uid="{Binding ID}" Click="btnDelete_Click" Visibility="Collapsed" Template="{StaticResource CTButon2}"/>
+                                        <Button Name="btnRecord" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click" Template="{StaticResource CTButon2}"/>
                                     </StackPanel>
                                 </StackPanel>
-                                
                             </StackPanel>
                            
                         </Grid>
@@ -77,7 +74,7 @@
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock Name="tbData"/>
-            <Button Name="btnAdd" Content="Добавить" Click="btnAdd_Click"/>
+            <Button Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Template="{StaticResource CTButon}"/>
         </StackPanel>
 
     </Grid>

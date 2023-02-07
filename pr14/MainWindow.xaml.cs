@@ -20,12 +20,14 @@ namespace pr14
     /// </summary>
     public partial class MainWindow : Window
     {
+        string code;
         public MainWindow()
-        {
+        {   
             InitializeComponent();
+            code = tbCode.Text;
             classes.ClassFrame.mainFrame = frMain;
             classes.ClassBase.Base = new Entities();
-            classes.ClassFrame.mainFrame.Navigate(new pages.PageService());
+            classes.ClassFrame.mainFrame.Navigate(new pages.PageService(code));
         }
     }
 }

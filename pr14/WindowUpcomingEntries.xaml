@@ -8,7 +8,7 @@
         Title="Ближайшие записи" Height="550" Width="1250">
     <Grid>
         <StackPanel>
-            <TextBlock Text="Ближайшие записи"/>
+            <TextBlock Text="Ближайшие записи" Style="{StaticResource TBlockZag}"/>
             <StackPanel>
                 <DataGrid Height="450" Name="dgUpcomingEntries" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
                     <DataGrid.Columns>

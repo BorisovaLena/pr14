@@ -22,10 +22,12 @@ namespace pr14.pages
     public partial class PageClientRecord : Page
     {
         Service service;
-        public PageClientRecord(Service service)
+        string code;
+        public PageClientRecord(Service service, string code)
         {
             InitializeComponent();
             this.service = service;
+            this.code = code;
             List<Client> clients = classes.ClassBase.Base.Client.ToList();
             for(int i=0; i<clients.Count; i++)
             {
@@ -81,7 +83,7 @@ namespace pr14.pages
                         classes.ClassBase.Base.ClientService.Add(clientService);
                         classes.ClassBase.Base.SaveChanges();
                         MessageBox.Show("Успешная запись на услугу!!!");
-                        classes.ClassFrame.mainFrame.Navigate(new PageService());
+                        classes.ClassFrame.mainFrame.Navigate(new PageService(code));
 
                     }
                 }
@@ -132,6 +134,11 @@ namespace pr14.pages
                 }
             }
             
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            classes.ClassFrame.mainFrame.Navigate(new pages.PageService(code));
         }
     }
 }

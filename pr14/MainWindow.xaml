@@ -18,6 +18,9 @@
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
                 <Image Source="pictures\school_logo.png" Width="60" Margin="10"/>
+                <GroupBox Header="Код" Width="100" Height="65" Margin="600,0,0,0">
+                    <TextBox Name="tbCode" Text="0000"/>
+                </GroupBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1">

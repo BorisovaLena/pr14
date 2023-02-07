@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:pr14.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="PageClientRecord">
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="Запись клиента на услугу"/>
+            <TextBlock Text="Запись клиента на услугу" Style="{StaticResource TBlockZag}"/>
             <StackPanel Width="500">
                 <GroupBox Header="Название">
                     <TextBox Name="tbName"/>
@@ -34,7 +34,11 @@
                 <GroupBox Header="Время окончания">
                     <TextBox Name="tbEndTime"/>
                 </GroupBox>
-                <Button Name="btnSaveClientrecord" Content="Сохранить" Click="btnSaveClientrecord_Click"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="btnSaveClientrecord" Content="Сохранить" Click="btnSaveClientrecord_Click" Template="{StaticResource CTButon}"/>
+                    <Button Name="btnBack" Content="Назад" Click="btnBack_Click" Template="{StaticResource CTButon}"/>
+                </StackPanel>
+               
             </StackPanel>
             
         </StackPanel>

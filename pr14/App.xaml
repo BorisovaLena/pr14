@@ -4,6 +4,41 @@
              xmlns:local="clr-namespace:pr14"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+        
+        <Style TargetType="TextBlock" x:Key="TBlockZag">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="GroupBox">
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="380"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+
+        <ControlTemplate x:Key="CTButon" TargetType="Button">
+            <Border BorderBrush="Black" BorderThickness="1" Background="#04A2FF"  Width="200" Height="30" Margin="5">
+                <ContentControl Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            </Border>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="CTButon2" TargetType="Button">
+            <Border BorderBrush="Black" BorderThickness="1" Background="#04A2FF"  Width="150" Height="30" Margin="5">
+                <ContentControl Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            </Border>
+        </ControlTemplate>
+
     </Application.Resources>
 </Application>
