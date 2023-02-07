@@ -13,20 +13,23 @@
                     <Image Width="200" Name="image"/>
                     <Button Name="btnUpdateImage" Content="Изменить фото"/>
                 </StackPanel>
+                <GroupBox Header="ID" Name="gbId">
+                    <TextBox Name="tbId" IsReadOnly="True"/>
+                </GroupBox>
                 <GroupBox Header="Название">
                     <TextBox Name="tbName"/>
                 </GroupBox>
                 <GroupBox Header="Стоимость">
-                    <TextBox Name="tbCost"/>
+                    <TextBox Name="tbCost" PreviewTextInput="tbCost_PreviewTextInput"/>
                 </GroupBox>
                 <GroupBox Header="Длительность">
-                    <TextBox Name="tbDurationInSeconds"/>
+                    <TextBox Name="tbDurationInSeconds" PreviewTextInput="tbCost_PreviewTextInput"/>
                 </GroupBox>
                 <GroupBox Header="Описание">
                     <TextBox Name="tbDescription"/>
                 </GroupBox>
                 <GroupBox Header="Скидка">
-                    <TextBox Name="tbDiscount"/>
+                    <TextBox Name="tbDiscount" PreviewTextInput="tbCost_PreviewTextInput"/>
                 </GroupBox>
             </StackPanel>
             <Button Name="btnSave" Content="Сохранить" Click="btnSave_Click"/>

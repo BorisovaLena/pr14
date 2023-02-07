@@ -115,6 +115,11 @@ namespace pr14.pages
                     int endInMin = startInMin + DurationInMin;
                     int hoursEnd = endInMin / 60;
                     int minEnd = endInMin - hoursEnd * 60;
+                    if (hoursEnd>23)
+                    {
+                        hoursEnd = hoursEnd - 24;
+                    }
+                    
                     if(minEnd<10)
                     {
                         tbEndTime.Text = hoursEnd + ":0" + minEnd;

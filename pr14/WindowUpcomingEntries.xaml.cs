@@ -25,7 +25,8 @@ namespace pr14
         {
             InitializeComponent();
             DateTime tomorrow = DateTime.Today.AddDays(2);
-            dgUpcomingEntries.ItemsSource = classes.ClassBase.Base.ClientService.Where(z=> z.StartTime>= DateTime.Today && z.StartTime <tomorrow).ToList();
+            List<ClientService> clientServices = classes.ClassBase.Base.ClientService.Where(z => z.StartTime >= DateTime.Today && z.StartTime < tomorrow).ToList();
+            dgUpcomingEntries.ItemsSource = clientServices.OrderBy(z => z.StartTime);
             Timer();
         }
 

@@ -21,6 +21,7 @@ namespace pr14.pages
     public partial class PageService : Page
     {
         List<Service> listFilter;
+
         public PageService()
         {
             InitializeComponent();
@@ -78,17 +79,24 @@ namespace pr14.pages
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            int index = Convert.ToInt32(btn.Uid);
-
-            List<ClientService> clientServices = classes.ClassBase.Base.ClientService.Where(z => z.ServiceID == index).ToList();
-            if (clientServices.Count==0)
+            switch(MessageBox.Show("Вы уверены, что хотите удалить?", "", MessageBoxButton.YesNo))
             {
-                Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
-                classes.ClassBase.Base.Service.Remove(service);
-                classes.ClassBase.Base.SaveChanges();
-                classes.ClassFrame.mainFrame.Navigate(new PageService());
-            } 
+                case MessageBoxResult.Yes:
+                    Button btn = (Button)sender;
+                    int index = Convert.ToInt32(btn.Uid);
+
+                    List<ClientService> clientServices = classes.ClassBase.Base.ClientService.Where(z => z.ServiceID == index).ToList();
+                    if (clientServices.Count == 0)
+                    {
+                        Service service = classes.ClassBase.Base.Service.FirstOrDefault(z => z.ID == index);
+                        classes.ClassBase.Base.Service.Remove(service);
+                        classes.ClassBase.Base.SaveChanges();
+                        classes.ClassFrame.mainFrame.Navigate(new PageService());
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void btnRecord_Click(object sender, RoutedEventArgs e)
@@ -112,6 +120,10 @@ namespace pr14.pages
             {
                 btn.Visibility = Visibility.Visible;
             }
+            else
+            {
+                btn.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
@@ -130,6 +142,19 @@ namespace pr14.pages
             WindowAddUpdate windowAddUpdate = new WindowAddUpdate();
             windowAddUpdate.ShowDialog();
             classes.ClassFrame.mainFrame.Navigate(new PageService());
+        }
+
+        private void btnDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            if (tbCode.Text == "0000")
+            {
+                btn.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btn.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

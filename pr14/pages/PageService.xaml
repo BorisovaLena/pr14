@@ -62,8 +62,8 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Button Name="btnUpdate" Loaded="btnUpdate_Loaded" Content="Редактировать" Uid="{Binding ID}" Click="btnUpdate_Click" Visibility="Collapsed"/>
-                                        <Button Name="btnDelete" Loaded="btnUpdate_Loaded" Content="Удалить" Uid="{Binding ID}" Click="btnDelete_Click" Visibility="Collapsed"/>
-                                        <Button Name="btnRecord" Loaded="btnUpdate_Loaded" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click" Visibility="Collapsed"/>
+                                        <Button Name="btnDelete" Loaded="btnDelete_Loaded" Content="Удалить" Uid="{Binding ID}" Click="btnDelete_Click" Visibility="Collapsed"/>
+                                        <Button Name="btnRecord" Content="Записать" Uid="{Binding ID}" Click="btnRecord_Click"/>
                                     </StackPanel>
                                 </StackPanel>
                                 
