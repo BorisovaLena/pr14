@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr14"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800"
+        Title="Школа языков “Леарн”" Height="800" Width="800"
         Icon="pictures/school_logo.ico">
 
  
@@ -18,7 +18,8 @@
         <StackPanel Grid.Row="0">
             <StackPanel Orientation="Horizontal">
                 <Image Source="pictures\school_logo.png" Width="60" Margin="10"/>
-                <GroupBox Header="Код" Width="100" Height="65" Margin="600,0,0,0">
+                <TextBlock Text="Школа языков “Леарн”" Style="{StaticResource TBlockZag}" VerticalAlignment="Center" Margin="200,0,0,0"/>
+                <GroupBox Header="Код" Width="100" Height="65" Margin="180,0,0,0">
                     <TextBox Name="tbCode" Text="0000"/>
                 </GroupBox>
             </StackPanel>
