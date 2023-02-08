@@ -27,6 +27,7 @@ namespace pr14
             add = true;
             image.Source = new BitmapImage(new Uri("..\\pictures\\picture.png", UriKind.Relative));
             gbId.Visibility = Visibility.Collapsed;
+            tbTitle.Text = "Добавление";
         }
 
         public WindowAddUpdate(Service service)
@@ -40,6 +41,12 @@ namespace pr14
             tbDurationInSeconds.Text = service.DurationInSeconds.ToString();
             tbDescription.Text = service.Description;
             tbDiscount.Text = service.Discount.ToString();
+            if (service.MainImagePath != null)
+            {
+                BitmapImage img = new BitmapImage(new Uri(service.MainImagePath, UriKind.RelativeOrAbsolute));
+                image.Source = img;
+            }
+            tbTitle.Text = "Редактирование";
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -128,6 +135,11 @@ namespace pr14
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

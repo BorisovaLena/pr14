@@ -116,10 +116,10 @@
     <Compile Include="TagOfClient.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="WindowAddUpdate.xaml.cs">
+    <Compile Include="windows\WindowAddUpdate.xaml.cs">
       <DependentUpon>WindowAddUpdate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowUpcomingEntries.xaml.cs">
+    <Compile Include="windows\WindowUpcomingEntries.xaml.cs">
       <DependentUpon>WindowUpcomingEntries.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -142,11 +142,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowAddUpdate.xaml">
+    <Page Include="windows\WindowAddUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WindowUpcomingEntries.xaml">
+    <Page Include="windows\WindowUpcomingEntries.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

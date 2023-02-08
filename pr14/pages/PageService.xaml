@@ -26,15 +26,22 @@
                 <Button Name="btnWindowUpcomingEntries" Content="Ближайшие записи" Click="btnWindowUpcomingEntries_Click" Template="{StaticResource CTButon}"/>
                
             </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
+                    <ComboBoxItem>Все</ComboBoxItem>
+                    <ComboBoxItem>от 0 до 5%</ComboBoxItem>
+                    <ComboBoxItem>от 5 до 15%</ComboBoxItem>
+                    <ComboBoxItem>от 15 до 30%</ComboBoxItem>
+                    <ComboBoxItem>от 30 до 70%</ComboBoxItem>
+                    <ComboBoxItem>от 70 до 100%</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="cmbSort2" SelectionChanged="cmbSort_SelectionChanged">
+                    <ComboBoxItem>Без сотрировки</ComboBoxItem>
+                    <ComboBoxItem>По возрастанию цены</ComboBoxItem>
+                    <ComboBoxItem>По убыванию цены</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
             
-            <ComboBox Name="cmbSort" SelectionChanged="cmbSort_SelectionChanged">
-                <ComboBoxItem>Все</ComboBoxItem>
-                <ComboBoxItem>от 0 до 5%</ComboBoxItem>
-                <ComboBoxItem>от 5 до 15%</ComboBoxItem>
-                <ComboBoxItem>от 15 до 30%</ComboBoxItem>
-                <ComboBoxItem>от 30 до 70%</ComboBoxItem>
-                <ComboBoxItem>от 70 до 100%</ComboBoxItem>
-            </ComboBox>
         </StackPanel>
         <ListView Grid.Row="1" Name="listServices" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="530">
             <ListView.ItemsPanel>

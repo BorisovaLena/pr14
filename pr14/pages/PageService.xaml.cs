@@ -28,12 +28,13 @@ namespace pr14.pages
             this.code = code;
             listServices.ItemsSource = classes.ClassBase.Base.Service.ToList();
             cmbSort.SelectedIndex = 0;
+            cmbSort2.SelectedIndex = 0;
         }
 
         void Filter()
         {
             listFilter = classes.ClassBase.Base.Service.ToList();
-            if (!string.IsNullOrWhiteSpace(tbSearch.Text)) //поиск
+            if (!string.IsNullOrWhiteSpace(tbSearch.Text))
             {
                 listFilter = listFilter.Where(z => z.Title.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
             }
@@ -55,6 +56,18 @@ namespace pr14.pages
                     listFilter = listFilter.Where(z => z.Discount > 0.7).ToList();
                     break;
             }
+
+            switch (cmbSort2.SelectedIndex)
+            {
+                case 1:
+                    listFilter.Sort((x, y) => x.Cost.CompareTo(y.Cost));
+                    break;
+                case 2:
+                    listFilter.Sort((x, y) => x.Cost.CompareTo(y.Cost));
+                    listFilter.Reverse();
+                    break;
+            }
+
             listServices.ItemsSource = listFilter;
 
             int zap = listFilter.Count;
@@ -93,6 +106,10 @@ namespace pr14.pages
                         classes.ClassBase.Base.Service.Remove(service);
                         classes.ClassBase.Base.SaveChanges();
                         classes.ClassFrame.mainFrame.Navigate(new PageService(code));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Удаление запрещено!!! На данную услугу есть записи!!!");
                     }
                     break;
                 default:

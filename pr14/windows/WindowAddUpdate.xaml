@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr14"
         mc:Ignorable="d"
-        Title="WindowAddUpdate" Height="500" Width="800">
+        Title="WindowAddUpdate" Height="650" Width="800">
     <Grid>
         <StackPanel>
             <StackPanel>
+                <TextBlock Name="tbTitle" Style="{StaticResource TBlockZag}"/>
                 <StackPanel Orientation="Horizontal">
                     <Image Width="200" Name="image"/>
-                    <Button Name="btnUpdateImage" Content="Изменить фото"/>
+                    <Button Name="btnUpdateImage" Content="Изменить фото" Template="{StaticResource CTButon}"/>
                 </StackPanel>
                 <GroupBox Header="ID" Name="gbId">
                     <TextBox Name="tbId" IsReadOnly="True"/>
@@ -32,7 +33,11 @@
                     <TextBox Name="tbDiscount" PreviewTextInput="tbCost_PreviewTextInput"/>
                 </GroupBox>
             </StackPanel>
-            <Button Name="btnSave" Content="Сохранить" Click="btnSave_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btnSave" Content="Сохранить" Click="btnSave_Click" Template="{StaticResource CTButon}"/>
+                <Button Name="btnBack" Content="Назад" Click="btnBack_Click" Template="{StaticResource CTButon}"/>
+            </StackPanel>
+           
         </StackPanel>
         
     </Grid>

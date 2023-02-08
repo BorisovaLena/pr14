@@ -13,10 +13,10 @@
             <TextBlock Text="Запись клиента на услугу" Style="{StaticResource TBlockZag}"/>
             <StackPanel Width="500">
                 <GroupBox Header="Название">
-                    <TextBox Name="tbName"/>
+                    <TextBox Name="tbName" IsReadOnly="True"/>
                 </GroupBox>
                 <GroupBox Header="Длительность">
-                    <TextBox Name="tbTime"/>
+                    <TextBox Name="tbTime" IsReadOnly="True"/>
                 </GroupBox>
                 <GroupBox Header="Выберите клиента">
                     <ComboBox Name="cmbClient"/>
@@ -32,7 +32,7 @@
                     </StackPanel>
                 </GroupBox>
                 <GroupBox Header="Время окончания">
-                    <TextBox Name="tbEndTime"/>
+                    <TextBox Name="tbEndTime" IsReadOnly="True"/>
                 </GroupBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Name="btnSaveClientrecord" Content="Сохранить" Click="btnSaveClientrecord_Click" Template="{StaticResource CTButon}"/>
